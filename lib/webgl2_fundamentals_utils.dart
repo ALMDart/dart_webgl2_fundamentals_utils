@@ -1,10 +1,7 @@
 /// Support for doing something awesome.
 ///
 /// More dartdocs go here.
-library dart_webgl_utils;
-
 import 'dart:html';
-
 import 'dart:web_gl';
 
 ///
@@ -54,8 +51,8 @@ Shader loadShader(RenderingContext2 gl, String shaderSource, int shaderType,
 /// on error. If you want something else pass an callback. It's passed an error message.
 Program createProgram(RenderingContext2 gl, Iterable<Shader> shaders,
     {List<String> opt_attribs,
-      List<int> opt_locations,
-      void Function(String) opt_errorCallback}) {
+    List<int> opt_locations,
+    void Function(String) opt_errorCallback}) {
   final errFn = opt_errorCallback ?? error;
   final program = gl.createProgram();
   shaders.forEach((shader) {
@@ -129,8 +126,8 @@ const defaultShaderType = <int>[WebGL.VERTEX_SHADER, WebGL.FRAGMENT_SHADER];
 Program createProgramFromScripts(
     RenderingContext2 gl, List<String> shaderScriptIds,
     {List<String> opt_attribs,
-      List<int> opt_locations,
-      void Function(String) opt_errorCallback}) {
+    List<int> opt_locations,
+    void Function(String) opt_errorCallback}) {
   final shaders = <Shader>[];
   for (var ii = 0; ii < shaderScriptIds.length; ++ii) {
     shaders.add(createShaderFromScript(gl, shaderScriptIds[ii],
@@ -157,8 +154,8 @@ Program createProgramFromScripts(
 Program createProgramFromSources(
     RenderingContext2 gl, List<String> shaderSources,
     {List<String> opt_attribs,
-      List<int> opt_locations,
-      void Function(String) opt_errorCallback}) {
+    List<int> opt_locations,
+    void Function(String) opt_errorCallback}) {
   final shaders = <Shader>[];
   for (var ii = 0; ii < shaderSources.length; ++ii) {
     shaders.add(loadShader(gl, shaderSources[ii], defaultShaderType[ii],
