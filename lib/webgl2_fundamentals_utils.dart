@@ -131,7 +131,7 @@ Program createProgramFromScripts(
     {List<String> opt_attribs,
       List<int> opt_locations,
       void Function(String) opt_errorCallback}) {
-  const shaders = <Shader>[];
+  final shaders = <Shader>[];
   for (var ii = 0; ii < shaderScriptIds.length; ++ii) {
     shaders.add(createShaderFromScript(gl, shaderScriptIds[ii],
         opt_shaderType: defaultShaderType[ii],
@@ -159,7 +159,7 @@ Program createProgramFromSources(
     {List<String> opt_attribs,
       List<int> opt_locations,
       void Function(String) opt_errorCallback}) {
-  const shaders = <Shader>[];
+  final shaders = <Shader>[];
   for (var ii = 0; ii < shaderSources.length; ++ii) {
     shaders.add(loadShader(gl, shaderSources[ii], defaultShaderType[ii],
         opt_errorCallback: opt_errorCallback));
